@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperativa Universitaria</title>
+</head>
+<body>
+    <h1>Cooperativa</h1>
+    <h2>Oña {{nombre}}</h2>
+    <ul>
+        {% for cat in categorias %}
+        {%if cat == 'Programacion' %}
+        <li>{{cat|upper}}</li>
+        {%else%}
+        <li>{{cat}}</li>
+        {%endif%}
+        
+        {%endfor%}
+    </ul>
+    <h5>
+        Total de categorias: {{categorias|length}}   
+    </h5>
+</body>
+</html>

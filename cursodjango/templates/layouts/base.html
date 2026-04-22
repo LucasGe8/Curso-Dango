@@ -1,0 +1,36 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}
+    {% endblock %}
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'herencia' %}">Herencia</a>
+            </li>
+            <li>
+                <a href="{% url 'otra' %}">Inclusion</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>Todos los derechos reservados - Cooperativa</p>
+    </footer>
+    {% block script %}
+    {% endblock %}
+</body>
+</html>
