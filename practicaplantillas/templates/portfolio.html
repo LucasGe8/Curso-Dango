@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html'%}
+{% load static %}
+{% block titulo %}
+<title>
+    Portfolio
+</title>
+{% endblock %}  
+{% block style %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}  
+{% block content %}
+<div class="items">
+    <div class="item">
+        <h1>Portfolio</h1>
+    </div>
+    <div class="item">
+        <h2>
+            Acá deberían ir fotos
+        </h2>
+    </div>
+</div>
+{% include 'layouts/footer.html' %}
+{% endblock %}

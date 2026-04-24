@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Inicio</title>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% endblock %}
+{% block content %}
+    <div class="items">
+        <div class="item">
+            <h1>Inicio</h1>
+        </div>
+        <div class="item">
+            <h2>Lucas Godoy</h2>
+        </div>
+        <div class="item">
+            <p>Aprendiendo Django</p>
+        </div>
+    </div>
+    <img src="{% static 'fondo.jpg' %}" alt="">
+    {% include 'layouts/footer.html' %}
+{% endblock %}
+{% block scripts %}
+{% endblock %}
