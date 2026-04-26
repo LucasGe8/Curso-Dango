@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultas</title>
+  </head>
+  <body>
+    <h3>Buscando autor donde email = natashahood@example.net</h3>
+    <ul>
+      {% for author in filtered %}
+      <li>{{ author.nombre }} | {{ author.email }}</li>
+      {% endfor %}
+    </ul>
+    <hr />
+    <h3>Buscando autor con id = 1</h3>
+      <p>{{ specific.nombre }} | {{ specific.email }}</p>
+    <hr />
+    <h3>Primeros 10 autores</h3>
+    <ul>
+      {% for author in limit %}
+      <li>{{ author.email }}</li>
+      {% endfor %}
+    </ul>
+    <h3>Autores desde la posicion 5 hasta la 10</h3>
+    <ul>
+      {% for author in offsets %}
+      <li>{{ author.nombre }} ({{ author.email }})</li>
+      {% endfor %}
+    </ul>
+    <h3>Todos los autores</h3>
+    <ul>
+      {% for author in authors %}
+      <li>{{ author.nombre }} ({{ author.email }})</li>
+      {% endfor %}
+    </ul>
+    <h3>Total de autores: {{ authors | length }}</h3>
+    <h3>Los primeros 10 autores</h3>
+    <ul>
+      {% for author in limit %}
+      <li>{{ author.nombre }} ({{ author.email }})</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
