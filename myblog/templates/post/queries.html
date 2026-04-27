@@ -41,5 +41,23 @@
       <li>{{ author.nombre }} ({{ author.email }})</li>
       {% endfor %}
     </ul>
+    <h3>Ordenamos alfabeticamente por nombre</h3>
+    <ul>
+      {% for author in ordered %}
+      <li>{{ author.nombre }} ({{ author.email }})</li>
+      {% endfor %}
+    </ul>
+    <h3>Rango de id 1-15</h3>
+    <ul>
+      {% for author in rango_de_id %}
+      <li>{{ author.nombre }} ({{ author.email }})</li>
+      {% endfor %}
+    </ul>
+    <h3>Autores que contienen la palabra yes en el nombre</h3>
+    <ul>
+      {% for author in contiene_yes %}
+      <li>{{ author.nombre }} ({{ author.email }})</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
