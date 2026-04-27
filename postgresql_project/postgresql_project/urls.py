@@ -1,5 +1,5 @@
 """
-URL configuration for myblog project.
+URL configuration for postgresql_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -16,9 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
 
 urlpatterns = [
-    path('queries/', views.queries, name='queries'),
-    path('update/', views.update, name='update')
+    path('admin/', admin.site.urls),
 ]
