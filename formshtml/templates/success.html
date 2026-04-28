@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+</head>
+<body>
+    <p>Gracias {{ nombre }} {{ apellido }} por enviar el formulario</p>
+    <p>Tu comentario fue: " {{ comentario }} "</p>
+    <a href="{% url 'getform' %}">Volver al formulario</a>
+</body>
+</html>

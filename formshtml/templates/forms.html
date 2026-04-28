@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Formularios HTML</title>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}
+{% block content %}
+    <h1>Formularios HTML</h1>
+    <h2>Formulario GET</h2>
+    {% include 'forms/contact.html' with method="GET"%}
+{% endblock %}
+{% block scripts %}
+{% endblock %}

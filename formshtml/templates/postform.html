@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+    {% block titulo %}
+    <title>Formulario Post</title>
+    {% endblock %}
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h1>Formulario POST</h1>
+    {% include 'forms/create.html' %}
+    {% endblock %}
+    {% block footer %}
+    {% include 'layouts/footer.html' %}
+    {% endblock %}
+</body>
+</html>
