@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'compañia',
+    'django-environ',
 ]
 
 ROOT_URLCONF = 'practicamodelos.urls'
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'practicamodelos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = env.db()
+DATABASES = {"default": env.db()}
 
 
 # Password validation
