@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
 
 def form(request):
     comment_form = CommentForm()
@@ -15,4 +15,21 @@ def goal(request):
         comentario = request.POST.get("comentario")
         url = request.POST.get("url")   
         return render(request, "goal.html", {"nombre": nombre, "comentario": comentario, "url": url})
+
+def widget(request):
+    if request.method == "GET":
+        form = ContactForm()
+        return render(request, "widget.html", {"form": form}) 
         
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            #Aquí van todas las acciones a realizar cuando los datos son correctos
+            return HttpResponse("<h1>Formulario enviado correctamente</h1>")
+        else:
+            #Aquí van todas las acciones a realizar cuando los datos son incorrectos    
+            return render(request, "widget.html", {"form": form}) 
+        return render(request, "widget.html", {"form": form}) 
+
+
+    
