@@ -1,0 +1,26 @@
+# --- Entornos Virtuales ---
+venv/
+env/
+.venv/
+
+# --- Variables de Entorno (¡CRÍTICO!) ---
+.env
+
+# --- Base de datos local ---
+*.sqlite3
+db.sqlite3
+
+# --- Archivos compilados de Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Archivos de registro (logs) ---
+*.log
+
+# --- Archivos de sistema operativo (Mac/Windows) ---
+.DS_Store
+Thumbs.db
+
+# --- Archivos de medios subidos por usuarios (opcional, pero recomendado) ---
+media/
