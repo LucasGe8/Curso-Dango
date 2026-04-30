@@ -1,10 +1,57 @@
 {% extends 'layouts/base.html' %}
-{%block title %}
-    Gestor Personal
-{%endblock title%}
-{%block content %}
-    <h1>Inicio</h1>
-    <p>Gestiona tus contactos y tareas</p>
-    <a href="{% url 'contacts' %}" class="btn btn-primary">Contactos</a>
-    <a href="{% url 'tasks' %}" class="btn btn-primary">Tareas</a>
-{%endblock content %}
+{% block title %}Inicio | Gestor Personal{% endblock %}
+
+{% block content %}
+<div class="row align-items-center py-5">
+    <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
+        <h1 class="display-3 fw-bold mb-4 text-gradient">
+            Gestiona tu vida de forma simple.
+        </h1>
+        <p class="lead text-muted mb-5">
+            Organiza tus contactos y tareas pendientes en un solo lugar. Eficiente, rápido y siempre a mano.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+            <a href="{% url 'contacts' %}" class="btn btn-lg px-4 fw-semibold btn-gradient">
+                Ver Contactos
+            </a>
+            <a href="{% url 'tasks' %}" class="btn btn-lg px-4 fw-semibold btn-outline-dark" style="border-radius: 12px; border-width: 2px;">
+                Ver Tareas
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="row g-4">
+            <div class="col-sm-6">
+                <div class="card h-100 card-custom p-3 shadow-sm">
+                    <div class="card-body">
+                        <div class="mb-3 d-inline-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(99, 102, 241, 0.1); color: #0084ff;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold">Contactos</h5>
+                        <p class="text-muted small">Mantén el registro de todas tus conexiones importantes.</p>
+                        <a href="{% url 'contacts' %}" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card h-100 card-custom p-3 shadow-sm">
+                    <div class="card-body">
+                        <div class="mb-3 d-inline-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(168, 85, 247, 0.1); color: #0026ff;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                                <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+                                <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold">Tareas</h5>
+                        <p class="text-muted small">No dejes nada pendiente. Visualiza y edita tus tareas.</p>
+                        <a href="{% url 'tasks' %}" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

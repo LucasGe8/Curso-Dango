@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg fixed-top" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'index' %}" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            GestorPersonal
+        </a>    
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-2">
+                <li class="nav-item">
+                    <a class="nav-link px-3 {% if request.resolver_match.url_name == 'index' %}active fw-semibold text-primary{% endif %}" href="{% url 'index' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 {% if request.resolver_match.url_name == 'contacts' %}active fw-semibold text-primary{% endif %}" href="{% url 'contacts' %}">Contactos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 {% if request.resolver_match.url_name == 'tasks' %}active fw-semibold text-primary{% endif %}" href="{% url 'tasks' %}">Tareas</a>
+                </li>
+            </ul>
+            {% if user.is_authenticated %}
+            <span class="navbar-text">
+                Hola, {{ user.username }} |
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="nav-link px-3" style="border: none; background: none; color: inherit; cursor: pointer; padding: 0;">Cerrar Sesión</button>
+                </form>
+            </span>
+            {% else %}
+            <span class="navbar-text">
+                <a class="nav-link px-3" href="{% url 'login' %}">Iniciar Sesión</a>
+            </span>
+            {% endif %}
+        </div>
+    </div>
+</nav>

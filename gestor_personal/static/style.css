@@ -1,0 +1,88 @@
+/* --- 1. VARIABLES GLOBALES --- */
+/* Definimos colores que usaremos en toda la web para no repetirlos */
+:root {
+    --primary-gradient: linear-gradient(135deg, #0084ff 0%, #0026ff 100%);
+    --bg-color: #f8fafc;
+    --text-main: #1e293b;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* --- 2. ESTILOS BASE --- */
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    padding-top: 80px; /* Espacio para que el navbar fixed no tape el contenido */
+    padding-bottom: 40px;
+}
+
+/* --- 3. COMPONENTES REUTILIZABLES --- */
+
+/* Tarjetas con efecto premium */
+.card-custom {
+    border: none !important;
+    border-radius: 20px !important;
+    shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Botones con gradiente */
+.btn-gradient {
+    background: var(--primary-gradient);
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-gradient:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* --- 4. ESTILOS DE FORMULARIOS --- */
+/* Esto hace que los formularios de Django se vean bien automáticamente */
+form p {
+    margin-bottom: 1.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+form input:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* --- 5. UTILIDADES --- */
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.shadow-premium {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+}

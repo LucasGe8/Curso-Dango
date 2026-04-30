@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
+from django.conf.global_settings import LOGOUT_REDIRECT_URL
+from django.conf.global_settings import LOGIN_REDIRECT_URL
 import environ 
 import os
 from pathlib import Path
@@ -123,4 +125,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"] 
 
-
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'login'

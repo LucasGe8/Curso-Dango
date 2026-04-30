@@ -1,30 +1,34 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactForm
-from django.shortcuts import redirect
 from .models import Contact
 
+@login_required
 def contacts(request):
     contacts = Contact.objects.all()
     return render(request, "contact/index.html", {'contacts': contacts})
 
+@login_required
 def create_contact(request):
-    contact = ContactForm(request.POST or None)
+    form = ContactForm(request.POST or None)
     if request.method == 'POST':
-        if contact.is_valid():
-            contact.save()
+        if form.is_valid():
+            form.save()
             return redirect('contacts')
-    return render(request, "contacts.html", {'contact': contact})
+    return render(request, "contact/contactform.html", {'form': form})
 
-def edit_contact(request, id):
-    contact = ContactForm(request.POST or None, instance=Contact.objects.get(id=id))
+@login_required
+def edit_contact(request, contact_id):
+    contact = get_object_or_404(Contact, id=contact_id)
+    form = ContactForm(request.POST or None, instance=contact)
     if request.method == 'POST':
-        if contact.is_valid():
-            contact.save()
+        if form.is_valid():
+            form.save()
             return redirect('contacts')
-    return render(request, "contacts.html", {'contact': contact})
+    return render(request, "contact/contactform.html", {'form': form, 'contact': contact})
 
-def delete_contact(request, id):
-    contact = Contact.objects.get(id=id)
+@login_required
+def delete_contact(request, contact_id):
+    contact = get_object_or_404(Contact, id=contact_id)
     contact.delete()
     return redirect('contacts')
-

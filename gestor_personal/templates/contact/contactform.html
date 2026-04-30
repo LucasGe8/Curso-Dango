@@ -1,13 +1,29 @@
 {% extends 'layouts/base.html' %}
-{%block title %}
-    {% if contact and contact.id %}Actualizar{% else %}Nuevo{% endif %} Contacto
-{%endblock title%}
-{% block content %}
-    <table>
-        <form method="post">
-            {% csrf_token %}
-            {{form.as_table}}
-            <button type="submit" class="btn btn-success">{% if contact and contact.id %}Actualizar{% else %}Enviar{% endif %}</button>
-        </form>
-    </table>
+
+{% block title %}
+    {% if contact.id %}Editar{% else %}Nuevo{% endif %} Contacto | Gestor Personal
 {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card border-0 shadow-premium p-4" style="border-radius: 24px;">
+            <div class="card-body">
+                <h2 class="fw-bold mb-4">{% if contact.id %}Editar{% else %}Nuevo{% endif %} Contacto</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg fw-semibold" style="border-radius: 12px; background: var(--primary-gradient); border: none;">
+                            {% if contact.id %}Guardar Cambios{% else %}Crear Contacto{% endif %}
+                        </button>
+                        <a href="{% url 'contacts' %}" class="btn btn-link text-muted">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

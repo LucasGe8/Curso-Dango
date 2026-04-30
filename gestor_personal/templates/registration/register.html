@@ -1,0 +1,10 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+  <h2>Registrarse</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-gradient">Registrarse</button>
+  </form>
+{% endblock %}
