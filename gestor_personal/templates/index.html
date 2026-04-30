@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+{%block title %}
+    Gestor Personal
+{%endblock title%}
+{%block content %}
+    <h1>Inicio</h1>
+    <p>Gestiona tus contactos y tareas</p>
+    <a href="{% url 'contacts' %}" class="btn btn-primary">Contactos</a>
+    <a href="{% url 'tasks' %}" class="btn btn-primary">Tareas</a>
+{%endblock content %}

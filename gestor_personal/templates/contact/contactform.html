@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+{%block title %}
+    {% if contact and contact.id %}Actualizar{% else %}Nuevo{% endif %} Contacto
+{%endblock title%}
+{% block content %}
+    <table>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_table}}
+            <button type="submit" class="btn btn-success">{% if contact and contact.id %}Actualizar{% else %}Enviar{% endif %}</button>
+        </form>
+    </table>
+{% endblock %}
